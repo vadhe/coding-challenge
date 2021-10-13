@@ -1,13 +1,15 @@
 import "./index.css";
 
+import App from "./App";
+import RatingContext from "./context/RatingContext";
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "./App";
-
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RatingContext>
+      <App />
+    </RatingContext>
   </React.StrictMode>,
   document.getElementById("root"),
 );

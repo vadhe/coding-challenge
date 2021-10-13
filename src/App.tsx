@@ -5,11 +5,13 @@ import * as React from "react";
 
 import AddStart from "./components/add-start/AddStart";
 import Button from "./components/button/Button";
+import {RatingContext} from "./context/RatingContext";
 import Start from "./components/start/Start";
 import StartWithLabel from "./components/start/StartWithLabel";
 
 const App: React.FC = () => {
   const [isModal, setIsModal] = React.useState(false)
+  const {rating} = React.useContext(RatingContext)
   const closeModal = () => false;
   const openModal = () => true;
   const handleShowModal = () => {
@@ -29,9 +31,9 @@ const App: React.FC = () => {
         <section className="header-rating">
           <h1>The Minimalist Entrepreneur</h1>
           <div className="wrapper-total-start">
-            <div className="total-start">
-              <p className="start-number">3.8</p>
-              <Start />
+            <div>
+              <Start rating={rating}/>
+              <Start rating={rating}/>
             </div>
             <Button onClick={handleShowModal}/>
           </div>
