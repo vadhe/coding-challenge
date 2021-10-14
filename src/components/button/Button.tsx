@@ -2,8 +2,12 @@ import "./Button.css";
 
 import * as React from "react";
 
-const Button: React.FC<{onClick: any}> = ({onClick}) => {
-  return <button onClick={onClick} className="button">Add review</button>;
+interface Button {
+  onClick: any,
+  label: string
+}
+const Button: React.FC<Button> = ({onClick, label}) => {
+  return <button onClick={onClick} className="button">{label}</button>;
 };
 
 export default Button;
