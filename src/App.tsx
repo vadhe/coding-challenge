@@ -1,40 +1,56 @@
-import './App.css'
-import './Reset.css'
+import "./App.css";
+import "./Reset.css";
 
-import Button from './components/button/Button'
-import Start from './components/start/Start'
-import { useState } from 'react'
+import * as React from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+import AddStart from "./components/add-start/AddStart";
+import Button from "./components/button/Button";
+import Rating from "./components/start/Rating";
+import {RatingContext} from "./context/RatingContext";
 
+const App: React.FC = () => {
+  const [isModal, setIsModal] = React.useState(false)
+  const ratings = React.useContext(RatingContext)?.rating
+  const closeModal = () => false;
+  const openModal = () => true;
+  const handleShowModal = () => {
+    if(isModal === false) {
+      setIsModal(openModal())
+    }
+    if(isModal === true) {
+      setIsModal(closeModal())
+    }
+  }
+  // console.log(rating)
   return (
     <div className="App">
-     <section className="container">
-       <section className="">
+      <div className={isModal ? "":"none"}>
+       <AddStart />
+      </div>
+      <section className="container">
+        <section className="header-rating">
           <h1>The Minimalist Entrepreneur</h1>
-          <div className="">
-            <div className="total-start">
-              <p className="start-number">3.8</p>
-              <Start />
+          <div className="wrapper-total-start">
+            <div>
+              {
+                ratings && <Rating rating={ratings[0].start}/>
+              }
             </div>
-            <Button/>
+            <Button label="Add review" onClick={handleShowModal}/>
           </div>
-       </section>
-       <hr />
-       <section className="reviews">
-          <h1>Reviews</h1>
+        </section>
+        <hr />
+        <section className="body-rating">
+          <h2>Reviews</h2>
           <div className="">
-            <div className="total-start">
-              <p className="start-number">3.8</p>
-              <Start />
-            </div>
-            <Button/>
+            {
+                ratings && ratings.map((rating) => <Rating rating={rating.start} label={rating.label} totalRating={rating.start}/>)
+            }
           </div>
-       </section>
-     </section>
+        </section>
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

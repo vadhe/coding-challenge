@@ -1,10 +1,13 @@
-import './Button.css'
-const Button = () => {
-    return (
-        <button className="button">
-            Add review
-        </button>
-    )
-}
+import "./Button.css";
 
-export default Button
+import * as React from "react";
+
+interface Button {
+  onClick: any,
+  label: string
+}
+const Button: React.FC<Button> = ({onClick, label}) => {
+  return <button onClick={onClick} className="button">{label}</button>;
+};
+
+export default Button;
