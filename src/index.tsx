@@ -1,19 +1,24 @@
 import './index.css';
 
 import App from "./App";
-import RatingContext from "./context/RatingContext";
+import ModalProvider from './context/ModalContext';
+import RatingProvider from "./context/RatingContext";
 import React from "react";
 import ReactDOM from "react-dom";
-import StarContext  from "./context/StarContex";
+import StarProvider  from "./context/StarContex";
 import reportWebVitals from './reportWebVitals';
+
+// import
 
 ReactDOM.render(
   <React.StrictMode>
-    <RatingContext>
-      <StarContext>
+    <RatingProvider>
+      <StarProvider>
+        <ModalProvider>
       <App />
-      </StarContext>
-    </RatingContext>
+      </ModalProvider>
+      </StarProvider>
+    </RatingProvider>
   </React.StrictMode>,
   document.getElementById("root"),
 );
