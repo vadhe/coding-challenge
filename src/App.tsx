@@ -5,23 +5,13 @@ import * as React from "react";
 
 import AddStart from "./components/add-start/AddStar";
 import Button from "./components/button/Button";
+import { ModalContext } from "./context/ModalContext";
 import Rating from "./components/rating/Rating";
 import {RatingContext} from "./context/RatingContext";
 
 const App: React.FC = () => {
-  const [isModal, setIsModal] = React.useState(false)
+  const {isModal, handleShowModal} = React.useContext(ModalContext)
   const ratings = React.useContext(RatingContext)?.ratings
-  const closeModal = () => false;
-  const openModal = () => true;
-  const handleShowModal = () => {
-    if(isModal === false) {
-      setIsModal(openModal())
-    }
-    if(isModal === true) {
-      setIsModal(closeModal())
-    }
-  }
-  // console.log(rating)
   return (
     <div className="App">
       <div className={isModal ? "":"none"}>
@@ -33,7 +23,7 @@ const App: React.FC = () => {
           <div className="wrapper-total-start">
             <div>
               {
-                ratings && <Rating rating={ratings[0].start}/>
+                ratings?.length? <Rating rating={ratings[0].star}/> : 'No Rating'
               }
             </div>
             <Button label="Add review" onClick={handleShowModal}/>
@@ -44,7 +34,7 @@ const App: React.FC = () => {
           <h2>Reviews</h2>
           <div className="">
             {
-                ratings && ratings.map((rating) => <Rating rating={rating.start} label={rating.label} totalRating={rating.start}/>)
+                ratings && ratings.map((rating) => <Rating rating={rating.star} label={rating.label} totalRating={rating.star}/>)
             }
           </div>
         </section>

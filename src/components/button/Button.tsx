@@ -2,12 +2,11 @@ import "./Button.css";
 
 import * as React from "react";
 
-interface InterfaceButton {
-  onClick: (event:any) => void,
+interface InterfaceButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string
 }
-const Button: React.FC<InterfaceButton> = ({onClick, label}) => {
-  return <button onClick={onClick} className="button">{label}</button>;
+const Button: React.FC<InterfaceButton> = ({label, ...props}) => {
+  return <button {...props} className="button">{label}</button>;
 };
 
 export default Button;

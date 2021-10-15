@@ -4,30 +4,33 @@ import * as React from 'react'
 
 import Button from '../button/Button'
 import Modal from '../modal/Modal'
+import { ModalContext } from '../../context/ModalContext'
 import { RatingContext } from '../../context/RatingContext'
+import Star from '../star/Star'
 import { StarContext } from '../../context/StarContex'
-import Start from '../start/Star'
 
 const AddStart:React.FC = () => {
-    const star = React.useContext(StarContext)?.star
-    const dispatch = React.useContext(RatingContext)?.dispatch
-    const ratings = React.useContext(RatingContext)?.ratings
+    const {star, restartStar} = React.useContext(StarContext)
+    const {handleShowModal} = React.useContext(ModalContext)
+    const {dispatch} = React.useContext(RatingContext)
     const [label, setLabel] = React.useState("")
-    const addStart = (event: React.FormEvent<HTMLFormElement>) => {
+    const addStart = (event: any) => {
         event.preventDefault();
         dispatch({type: 'ADD_START', rating:{label,star}})
-        console.log(ratings)
+        setLabel("")
+        restartStar&& restartStar()
+        handleShowModal&& handleShowModal()
     }
     return (
         <Modal>
             <div className="add-start">
-              <h2>What's Your Rating ?  {star}{label}</h2>
+              <h2>What's Your Rating ?</h2>
               <form>
                   <label htmlFor="rating">Rating</label>
-                  <Start/>
+                  <Star/>
                   <label htmlFor="label">Review</label>
-                  <input id="label" name="label" value={label} onChange={(e) => setLabel(e.target.value)} type="text" placeholder="Start typing..." />
-                  <Button label="Submit review" onClick={(event:React.FormEvent<HTMLFormElement>) => addStart(event)}/>
+                  <input autoComplete="off" id="label" name="label" value={label} onChange={(e) => setLabel(e.target.value)} type="text" placeholder="Start typing..." />
+                  <Button label="Submit review" onClick={(e) => addStart(e)}/>
               </form>
             </div>
         </Modal>
