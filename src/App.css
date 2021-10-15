@@ -2,7 +2,7 @@
   padding: 1rem;
 }
 
-.header-rating h1{
+.header-rating h1 {
   font-weight: 700;
   font-size: 24px;
 }
@@ -11,46 +11,50 @@
   font-weight: 700;
   font-size: 18px;
 }
+
 /* @media (min-width: 640px) { ... } */
 /* @media (min-width: 768px) { ... } */
-@media (min-width: 1024px) { 
-   .wrapper-total-start{
-     display: flex;
-     justify-content: space-between;
-   }
-   .header-rating{
+@media (min-width: 1024px) {
+  .wrapper-total-start {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-rating {
     width: 50%;
   }
-   .body-rating {
-     width: 50%;
-   }
-   .container {
-     display: flex;
-     align-items: center;
-     flex-direction: column;
-     margin: 4rem 0;
-   }
 
-   .total-start {
-     display: flex;
-     align-items: center;
-   }
+  .body-rating {
+    width: 50%;
+  }
 
-   .start-number {
-     margin-right: 1rem;
-   }
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 4rem 0;
+  }
 
-   .header-rating h1 {
-     font-weight: 700;
-     font-size: 44px;
-   }
+  .total-start {
+    display: flex;
+    align-items: center;
+  }
 
-   .body-rating h2 {
-     font-weight: 700;
-     font-size: 28px;
-   }
- }
+  .start-number {
+    margin-right: 1rem;
+  }
 
- .none {
-   display: none;
- }
+  .header-rating h1 {
+    font-weight: 700;
+    font-size: 44px;
+  }
+
+  .body-rating h2 {
+    font-weight: 700;
+    font-size: 28px;
+  }
+}
+
+.none {
+  display: none;
+}

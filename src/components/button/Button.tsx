@@ -2,11 +2,11 @@ import "./Button.css";
 
 import * as React from "react";
 
-interface Button {
-  onClick: any,
+interface InterfaceButton {
+  onClick: (event:any) => void,
   label: string
 }
-const Button: React.FC<Button> = ({onClick, label}) => {
+const Button: React.FC<InterfaceButton> = ({onClick, label}) => {
   return <button onClick={onClick} className="button">{label}</button>;
 };
 

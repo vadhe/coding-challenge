@@ -10,15 +10,15 @@ interface Start {
   label?: string
 }
 const Rating: React.FC<Start> = ({rating, label, totalRating}) => {
-  const started = "#ffce6d";
-  const unstart = "#e0e0e0";
-  const startLength = [1,2,3,4,5];
+  const stared = "#ffce6d";
+  const unstar = "#e0e0e0";
+  const starLength = [1,2,3,4,5];
   // const rating = 5;
   return (
     <div className="rating">
       <div>
       {
-        startLength.map((index) => <AiFillStar color={index <= rating ? started : unstart} size="32" />)
+        starLength.map((index) => <AiFillStar key={index} color={index <= rating ? stared : unstar} size="32" />)
       }
       </div>
       <div className="rating-label">

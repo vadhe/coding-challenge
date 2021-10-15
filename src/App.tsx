@@ -3,14 +3,14 @@ import "./Reset.css";
 
 import * as React from "react";
 
-import AddStart from "./components/add-start/AddStart";
+import AddStart from "./components/add-start/AddStar";
 import Button from "./components/button/Button";
-import Rating from "./components/start/Rating";
+import Rating from "./components/rating/Rating";
 import {RatingContext} from "./context/RatingContext";
 
 const App: React.FC = () => {
   const [isModal, setIsModal] = React.useState(false)
-  const ratings = React.useContext(RatingContext)?.rating
+  const ratings = React.useContext(RatingContext)?.ratings
   const closeModal = () => false;
   const openModal = () => true;
   const handleShowModal = () => {
