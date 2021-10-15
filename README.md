@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Add Rating Stars
+
+this is a project just for learning making add start rating
+
+# if you interested to try this project just follow the guide in below
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
