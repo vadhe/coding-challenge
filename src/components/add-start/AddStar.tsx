@@ -16,7 +16,7 @@ const AddStart:React.FC = () => {
     const [label, setLabel] = React.useState("")
     const addStart = (event: React.FormEvent<EventTarget>) => {
         event.preventDefault();
-        dispatch({type: 'ADD_START', rating:{label,star}})
+        dispatch&& dispatch({type: 'ADD_START', rating:{label,star}})
         setLabel("")
         restartStar&& restartStar()
         handleShowModal&& handleShowModal()

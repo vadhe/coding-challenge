@@ -5,7 +5,7 @@ import { typeRatings } from '../type/types';
 
 interface InterfaceRatingContext{
     ratings: typeRatings[],
-    dispatch?: any
+    dispatch?: React.Dispatch<any>
 }
 export const RatingContext = React.createContext<InterfaceRatingContext>({
     ratings: [{
