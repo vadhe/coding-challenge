@@ -14,8 +14,9 @@ const RatingProvider:React.FC<React.ReactNode> = ({children}) => {
     const restartStar = () => {
         setStar(0)
     }
+    const value = {star, addStar, restartStar}
     return (
-        <StarContext.Provider value={{star, addStar, restartStar}}>
+        <StarContext.Provider value={value}>
             {children}
         </StarContext.Provider>
     )

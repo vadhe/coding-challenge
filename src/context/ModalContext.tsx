@@ -17,9 +17,13 @@ const ModalProvider:React.FC<React.ReactNode> = ({children}) => {
       setIsModal(closeModal())
     }
   }
-
+   const value = {
+    isModal, 
+    handleShowModal
+   }
+  
     return(
-        <ModalContext.Provider value={{isModal, handleShowModal}}>
+        <ModalContext.Provider value={value}>
             {children}
         </ModalContext.Provider>
     )

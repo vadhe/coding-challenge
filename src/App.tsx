@@ -12,6 +12,7 @@ import {RatingContext} from "./context/RatingContext";
 const App: React.FC = () => {
   const {isModal, handleShowModal} = React.useContext(ModalContext)
   const ratings = React.useContext(RatingContext)?.ratings
+  const { response } = React.useContext(RatingContext)
   return (
     <div className="App">
       <div className={isModal ? "":"none"}>
@@ -34,7 +35,7 @@ const App: React.FC = () => {
           <h2>Reviews</h2>
           <div className="">
             {
-                ratings && ratings.map((rating) => <Rating rating={rating.star} label={rating.label} totalRating={rating.star}/>)
+                response && response.map((rating: any) => <Rating rating={rating.star} label={rating.label} totalRating={rating.star}/>)
             }
           </div>
         </section>
